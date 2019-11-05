@@ -1,0 +1,56 @@
+scalar EmailAdress
+scalar URL
+directive @auth on FIELD_DEFINITION | FIELD
+
+type Query {
+    getSingleeTeacher: eTeacher
+    geteTeachers:[eTeacher]!
+}
+
+type Mutation{
+    createNeweTeacher(data: eTeacherInput!):eTeacher!
+    updateOneeTeacher(id:ID!, data: eTeacherUpdateInput!):eTeacher!@auth
+    deleteOneeTeacher(id:ID!):String!@auth
+    login(email:EmailAdress!, contrasena:String):Auth!
+}
+
+type Auth{
+    token:String!
+    message:String!
+}
+
+input eTeacher{
+    correo:String!
+    contrasena: String!
+    nombre: String!
+    apellidos: String!
+    gradomaximo: String!
+    areas: String!
+    experiencia: String!
+    acercaDe: String!
+    celular: Number!
+    direccion: String!
+    experiencia: String!
+    ciudad: String!
+    zona: String!
+    cp: Number!
+    profile_pic: 
+}
+
+input eTeacherInput{
+    correo:String!
+    contrasena: String!
+    nombre: String!
+    apellidos: String!
+    gradomaximo: String!
+    areas: String!
+    experiencia: String!
+    acercaDe: String
+    celular: Number!
+    direccion: String!
+    experiencia: String!
+    ciudad: String!
+    zona: String!
+    cp: Number!
+    profile_pic: 
+}
