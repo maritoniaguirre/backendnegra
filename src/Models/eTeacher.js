@@ -70,7 +70,7 @@ const eTeacherSchema = new Schema({
         timestamps:true
     });
 
-AuthorSchema.pre('save',function(next){
+eTeacherSchema.pre('save',function(next){
     const eTeacher = this;
     const SALT_FACTOR = 10;
     if(!eTeacher.isModified('contrasena')) { return next();}
